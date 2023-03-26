@@ -9,21 +9,24 @@ five a = 5
 -- b) apply, que toma una función y un valor, y devuelve el resultado de
 -- aplicar la función al valor dado
 apply :: (t1 -> t2) -> t1 -> t2
-apply f a = f a
+apply f = f
 
 -- c) identidad, la función identidad
 identidad :: p -> p
 identidad x = x
 
---d) first, que toma un par ordenado, y devuelve su primera componente
+-- d) first, que toma un par ordenado, y devuelve su primera componente
 first :: (a, b) -> a
 first (x, y) = x
+
+-- e) derive, que aproxima la derivada de una función dada en un punto dado
+derive :: (Fractional a, Fractional t) => (t -> a) -> t -> a
+derive f x = (f(x+0.0001) - f x)/ 0.0001
+
 
 ---------------------------- POR RESOLVER --------------------------------------
 
 {-
-
-e) derive, que aproxima la derivada de una función dada en un punto dado
 
 f) sign, la función signo
 
