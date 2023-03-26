@@ -2,17 +2,18 @@
 2. Definir las siguientes funciones y determinar su tipo:
 -}
 
---a) five, que dado cualquier valor, devuelve 5
+-- a) five, que dado cualquier valor, devuelve 5
 five :: Num p1 => p2 -> p1
 five a = 5
 
-
+-- b) apply, que toma una función y un valor, y devuelve el resultado de
+-- aplicar la función al valor dado
+apply :: (t1 -> t2) -> t1 -> t2
+apply f a = f a
 
 ---------------------------- POR RESOLVER --------------------------------------
 
 {-
-b) apply, que toma una función y un valor, y devuelve el resultado de
-aplicar la función al valor dado
 
 c) identidad, la función identidad
 
