@@ -69,9 +69,6 @@ max2 a b = if a > b then a else b
 max3b :: Ord p => p -> p -> p -> p
 max3b a b c = if max2 a b > c then max a b else c
 
-
----------------------------- POR RESOLVER --------------------------------------
-
-{-
-k) swap, que toma un par y devuelve el par con sus componentes invertidas
--}
+-- k) swap, que toma un par y devuelve el par con sus componentes invertidas
+swap :: (b, a) -> (a, b)
+swap (a, b) = (b, a)
