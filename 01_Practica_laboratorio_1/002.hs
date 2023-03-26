@@ -31,15 +31,23 @@ sign x
     | otherwise = "x igual a cero, no tiene signo"
 
 -- g) vabs, la función valor absoluto (usando sign y sin usarla)
+-- sin usar la funcion sign
 varsSin :: (Ord p, Num p) => p -> p
 varsSin x
     | x < 0 = -x
     | otherwise = x
 
+-- usando la funcion sign
 varsCon :: Num p => (p -> [Char]) -> p -> p
 varsCon f x
     | f x == "-" = -x
     | otherwise = x
+
+-- h) pot, que toma un entero y un número, y devuelve el resultado de
+-- elevar el segundo a la potencia dada por el primero
+pot :: (Integral b, Num a) => b -> a -> a
+pot x y = y ^ x
+
 
 
 
@@ -47,8 +55,6 @@ varsCon f x
 ---------------------------- POR RESOLVER --------------------------------------
 
 {-
-h) pot, que toma un entero y un número, y devuelve el resultado de
-elevar el segundo a la potencia dada por el primero
 
 i) xor, el operador de disyunción exclusiva
 
