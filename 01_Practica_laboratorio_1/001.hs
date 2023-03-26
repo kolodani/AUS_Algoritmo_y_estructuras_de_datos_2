@@ -53,12 +53,17 @@ listNumeros = '1' : '2' : 'a' : []
 []     ++! ys = ys
 (x:xs) ++! ys = x : xs ++! ys
 
+-- f)
+{-
+addToTail x xs = map +x tail xs
+-}
+addToTail :: Num b => b -> [b] -> [b]
+addToTail x xs = map (+x) (tail xs)
+-- agregando los parentesis map recibe la funcion +x y la lista que devuelve tail xs
+
 --------------------- POR RESOLVER -------------------------------------------------
 
 {-
--- f)
-addToTail x xs = map +x tail xs
-
 -- g)
 listmin xs = head . sort xs
 
