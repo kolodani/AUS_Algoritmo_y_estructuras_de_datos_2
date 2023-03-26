@@ -61,24 +61,26 @@ listNumeros = '1' : '2' : 'a' : []
 {-
 addToTail x xs = map +x tail xs
 -}
+-- agregando los parentesis map recibe la funcion +x y la lista que devuelve tail xs
 addToTail :: Num b => b -> [b] -> [b]
 addToTail x xs = map (+x) (tail xs)
--- agregando los parentesis map recibe la funcion +x y la lista que devuelve tail xs
 
 -- g)
 {-
 listmin xs = head . sort xs
 -}
+-- agrego los parentesis para hacer la composicion de funciones asi primero hace el sort y luego el head
 listmin :: Ord c => [c] -> c
 listmin xs = (head . sort) xs
--- agrego los parentesis para hacer la composicion de funciones asi primero hace el sort y luego el head
 
---------------------- POR RESOLVER -------------------------------------------------
-
-{-
 -- h) (*)
+{-
 smap f [] = []
 smap f [x] = [f x]
 smap f (x:xs) = f x : smap (smap f) xs
-
 -}
+-- evitando una recurrencia infinita en la llamada smap
+smap :: (t -> a) -> [t] -> [a]
+smap f [] = []
+smap f [x] = [f x]
+smap f (x : xs) = f x : smap f xs
