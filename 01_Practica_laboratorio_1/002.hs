@@ -21,14 +21,18 @@ first (x, y) = x
 
 -- e) derive, que aproxima la derivada de una función dada en un punto dado
 derive :: (Fractional a, Fractional t) => (t -> a) -> t -> a
-derive f x = (f(x+0.0001) - f x)/ 0.0001
+derive f x = (f (x + 0.0001) - f x) / 0.0001
 
+-- f) sign, la función signo
+sign :: (Ord a, Num a) => a -> [Char]
+sign x
+    | x > 0 = "signo positivo +"
+    | x < 0 = "signo negativo -"
+    | otherwise = "x igual a cero, no tiene signo"
 
 ---------------------------- POR RESOLVER --------------------------------------
 
 {-
-
-f) sign, la función signo
 
 g) vabs, la función valor absoluto (usando sign y sin usarla)
 
