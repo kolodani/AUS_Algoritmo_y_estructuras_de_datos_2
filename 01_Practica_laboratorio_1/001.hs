@@ -12,15 +12,21 @@ regla b = case b of
 regla :: Bool -> [Char]
 regla b = if b then "Quedate en Casa" else "Qudate en casa"
 
---------------------- POR RESOLVER -------------------------------------------------
-
-{-
-
 -- b)
+{-
 case [x]         =  []
 case (x:y:xs)      =  y : case (x:xs)
 case []          =  []
+-}
 
+case1 :: [a] -> [a]
+case1 [x]         =  []
+case1 (x:y:xs)      =  y : case1 (x:xs)
+case1 []          =  []
+
+--------------------- POR RESOLVER -------------------------------------------------
+
+{-
 -- c)
 map f []        =  []
 map f (x:xs)     =  f x : map f xs
