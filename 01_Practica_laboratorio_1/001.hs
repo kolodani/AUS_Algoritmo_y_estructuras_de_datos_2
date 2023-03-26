@@ -1,3 +1,7 @@
+module Practica0 where
+
+import Data.List ( sort )
+
 {-
 1) Los siguientes códigos tienen errores, cargar el archivo 20.Practica.0.hs en el interprete de Haskell
 GHCi, leer los mensajes de error y corregirlos hasta que el archivo se cargue correctamente.
@@ -61,12 +65,17 @@ addToTail :: Num b => b -> [b] -> [b]
 addToTail x xs = map (+x) (tail xs)
 -- agregando los parentesis map recibe la funcion +x y la lista que devuelve tail xs
 
+-- g)
+{-
+listmin xs = head . sort xs
+-}
+listmin :: Ord c => [c] -> c
+listmin xs = (head . sort) xs
+-- agrego los parentesis para hacer la composicion de funciones asi primero hace el sort y luego el head
+
 --------------------- POR RESOLVER -------------------------------------------------
 
 {-
--- g)
-listmin xs = head . sort xs
-
 -- h) (*)
 smap f [] = []
 smap f [x] = [f x]
