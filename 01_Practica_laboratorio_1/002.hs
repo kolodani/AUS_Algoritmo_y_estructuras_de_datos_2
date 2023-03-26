@@ -48,15 +48,17 @@ varsCon f x
 pot :: (Integral b, Num a) => b -> a -> a
 pot x y = y ^ x
 
-
-
+-- i) xor, el operador de disyunción exclusiva
+xor :: Eq a => a -> a -> Bool
+xor a b
+    |a == b = False
+    |otherwise = True
 
 
 ---------------------------- POR RESOLVER --------------------------------------
 
 {-
 
-i) xor, el operador de disyunción exclusiva
 
 j) max3, que toma tres números enteros y devuelve el máximo entre llos
 
