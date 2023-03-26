@@ -26,16 +26,27 @@ derive f x = (f (x + 0.0001) - f x) / 0.0001
 -- f) sign, la función signo
 sign :: (Ord a, Num a) => a -> [Char]
 sign x
-    | x > 0 = "signo positivo +"
-    | x < 0 = "signo negativo -"
+    | x > 0 = "+"
+    | x < 0 = "-"
     | otherwise = "x igual a cero, no tiene signo"
+
+-- g) vabs, la función valor absoluto (usando sign y sin usarla)
+varsSin :: (Ord p, Num p) => p -> p
+varsSin x
+    | x < 0 = -x
+    | otherwise = x
+
+varsCon :: Num p => (p -> [Char]) -> p -> p
+varsCon f x
+    | f x == "-" = -x
+    | otherwise = x
+
+
+
 
 ---------------------------- POR RESOLVER --------------------------------------
 
 {-
-
-g) vabs, la función valor absoluto (usando sign y sin usarla)
-
 h) pot, que toma un entero y un número, y devuelve el resultado de
 elevar el segundo a la potencia dada por el primero
 
