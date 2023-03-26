@@ -24,13 +24,19 @@ case1 [x]         =  []
 case1 (x:y:xs)      =  y : case1 (x:xs)
 case1 []          =  []
 
+-- c)
+{-
+map f []        =  []
+map f (x:xs)     =  f x : map f xs
+-}
+
+mape :: (t -> a) -> [t] -> [a]
+mape f [] = []
+mape f (x : xs) = f x : map f xs
+
 --------------------- POR RESOLVER -------------------------------------------------
 
 {-
--- c)
-map f []        =  []
-map f (x:xs)     =  f x : map f xs
-
 -- d)
 listNumeros = (1 : 2) : 'a' : []
 
