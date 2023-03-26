@@ -1,6 +1,6 @@
 module Practica0 where
 
-import Data.List ( sort )
+import Data.List (sort)
 
 {-
 1) Los siguientes códigos tienen errores, cargar el archivo 20.Practica.0.hs en el interprete de Haskell
@@ -25,9 +25,9 @@ case []          =  []
 -}
 -- la palabra case es reservada, no se puede utilizar para otra cosa que no sea para lo que fue creada
 case1 :: [a] -> [a]
-case1 [x]         =  []
-case1 (x:y:xs)      =  y : case1 (x:xs)
-case1 []          =  []
+case1 [x] = []
+case1 (x : y : xs) = y : case1 (x : xs)
+case1 [] = []
 
 -- c)
 {-
@@ -54,8 +54,8 @@ listNumeros = '1' : '2' : 'a' : []
 -}
 -- concatenador de dos listas
 (++!) :: [a] -> [a] -> [a]
-[]     ++! ys = ys
-(x:xs) ++! ys = x : xs ++! ys
+[] ++! ys = ys
+(x : xs) ++! ys = x : xs ++! ys
 
 -- f)
 {-
@@ -63,7 +63,7 @@ addToTail x xs = map +x tail xs
 -}
 -- agregando los parentesis map recibe la funcion +x y la lista que devuelve tail xs
 addToTail :: Num b => b -> [b] -> [b]
-addToTail x xs = map (+x) (tail xs)
+addToTail x xs = map (+ x) (tail xs)
 
 -- g)
 {-

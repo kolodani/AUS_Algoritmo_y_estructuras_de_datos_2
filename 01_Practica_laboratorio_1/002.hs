@@ -6,26 +6,22 @@
 five :: Num p1 => p2 -> p1
 five a = 5
 
-
 -- b) apply, que toma una función y un valor, y devuelve el resultado de
 -- aplicar la función al valor dado
 apply :: (t1 -> t2) -> t1 -> t2
 apply f a = f a
 
-
 -- c) identidad, la función identidad
 identidad :: p -> p
 identidad x = x
 
-
-
+--d) first, que toma un par ordenado, y devuelve su primera componente
+first :: (a, b) -> a
+first (x, y) = x
 
 ---------------------------- POR RESOLVER --------------------------------------
 
 {-
-
-
-d) first, que toma un par ordenado, y devuelve su primera componente
 
 e) derive, que aproxima la derivada de una función dada en un punto dado
 
