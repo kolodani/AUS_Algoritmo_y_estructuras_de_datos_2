@@ -34,12 +34,16 @@ mape :: (t -> a) -> [t] -> [a]
 mape f [] = []
 mape f (x : xs) = f x : map f xs
 
+-- d)
+{-
+listNumeros = (1 : 2) : 'a' : []
+-}
+
+listNumeros = '1' : '2' : 'a' : []
+
 --------------------- POR RESOLVER -------------------------------------------------
 
 {-
--- d)
-listNumeros = (1 : 2) : 'a' : []
-
 -- e)
 []     ++! ys = ys
 (x:xs) ++! ys = x : xs ++! ys
