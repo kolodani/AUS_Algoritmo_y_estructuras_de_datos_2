@@ -28,17 +28,27 @@ valorAbsolutoA :: (Int -> Int) -> Int
 valorAbsolutoA f = f (-3)
 
 -- b) Int -> (Int -> Int)
--- funcion auxiliar para usar en el ejemplo b
 addB :: Int -> (Int -> Int)
 addB x y = x + y
 
 productoB :: Int -> (Int -> Int)
 productoB x y = x * y
 
-
-
-
 -- c) (Int -> Int) -> (Int -> Int)
+-- funcion auxiliar para usar en el ejemplo c
+auxiliarC :: Int -> Int
+auxiliarC x = x * 2
+
+ejemploC :: (Int -> Int) -> (Int -> Int)
+ejemploC f x = f (f x)
+
+-- funcion auxiliar para usar en el ejemplo c
+potenciaC :: Int -> Int
+potenciaC x = x * x
+
+ejemC :: (Int -> Int) -> (Int -> Int)
+ejemC f x = f (f x) * 3
+
 
 
 
