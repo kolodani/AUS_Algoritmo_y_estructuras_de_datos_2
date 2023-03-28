@@ -14,15 +14,21 @@ j) a -> a
 
 -- a) (Int -> Int) -> Int
 sumarA :: (Int, Int) -> Int
-sumarA (x , y) = x + y
+sumarA (x, y) = x + y
 
 mayorA :: (Int, Int) -> Int
-mayorA (x , y)
-    |x > y = x
-    |otherwise = y
+mayorA (x, y)
+    | x > y = x
+    | otherwise = y
+
+-- b) Int -> (Int -> Int)
+rectaB :: Int -> (Int, Int)
+rectaB x = (x, 0)
+
+potenciaB :: Int -> (Int, Int)
+potenciaB x = (x, x*x)
 
 {-
-b) Int -> (Int -> Int)
 c) (Int -> Int) -> (Int -> Int)
 d) Int -> Bool
 e) Bool -> (Bool -> Bool)
