@@ -28,15 +28,17 @@ valorAbsolutoA :: (Int -> Int) -> Int
 valorAbsolutoA f = f (-3)
 
 -- b) Int -> (Int -> Int)
-rectaB :: Int -> (Int, Int)
-rectaB x = (x, 0)
+-- funcion auxiliar para usar en el ejemplo b
+addB :: Int -> (Int -> Int)
+addB x y = x + y
 
-potenciaB :: Int -> (Int, Int)
-potenciaB x = (x, x*x)
+productoB :: Int -> (Int -> Int)
+productoB x y = x * y
+
+
+
 
 -- c) (Int -> Int) -> (Int -> Int)
-invertirC (a, b) = (b, a)
-
 
 
 
