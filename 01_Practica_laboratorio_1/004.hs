@@ -13,13 +13,19 @@ j) a -> a
 -}
 
 -- a) (Int -> Int) -> Int
-sumarA :: (Int, Int) -> Int
-sumarA (x, y) = x + y
+-- funcion auxiliar para usar en el ejemplo a
+auxiliarA :: Int -> Int
+auxiliarA x = x + 1
 
-mayorA :: (Int, Int) -> Int
-mayorA (x, y)
-    | x > y = x
-    | otherwise = y
+sumar3A :: (Int -> Int) -> Int
+sumar3A f = f 3
+
+-- funcion auxiliar para usar en el ejemplo a
+opuestoA :: Int -> Int
+opuestoA x = -x
+
+valorAbsolutoA :: (Int -> Int) -> Int
+valorAbsolutoA f = f (-3)
 
 -- b) Int -> (Int -> Int)
 rectaB :: Int -> (Int, Int)
@@ -28,8 +34,16 @@ rectaB x = (x, 0)
 potenciaB :: Int -> (Int, Int)
 potenciaB x = (x, x*x)
 
+-- c) (Int -> Int) -> (Int -> Int)
+invertirC (a, b) = (b, a)
+
+
+
+
+
+
+
 {-
-c) (Int -> Int) -> (Int -> Int)
 d) Int -> Bool
 e) Bool -> (Bool -> Bool)
 f) (Int,Char) -> Bool
