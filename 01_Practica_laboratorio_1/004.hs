@@ -50,15 +50,20 @@ ejemC :: (Int -> Int) -> (Int -> Int)
 ejemC f x = f (f x) * 3
 
 -- d) Int -> Bool
-esPar :: Int -> Bool
-esPar x = if x `mod` 2 == 0 then True else False
+esParD :: Int -> Bool
+esParD x = if x `mod` 2 == 0 then True else False
 
-esPositivo:: Int -> Bool
-esPositivo x = if x > 0 then True else False
+esPositivoD:: Int -> Bool
+esPositivoD x = if x > 0 then True else False
 
+-- e) Bool -> (Bool -> Bool)
+andE :: Bool -> (Bool -> Bool)
+andE x y = x && y
+
+orE :: Bool -> (Bool -> Bool)
+orE x y = x || y
 
 {-
-e) Bool -> (Bool -> Bool)
 f) (Int,Char) -> Bool
 g) (Int,Int) -> Int
 h) Int -> (Int,Int)
