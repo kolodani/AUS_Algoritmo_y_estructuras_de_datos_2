@@ -63,8 +63,18 @@ andE x y = x && y
 orE :: Bool -> (Bool -> Bool)
 orE x y = x || y
 
+-- f) (Int,Char) -> Bool
+ejemF :: (Int,Char) -> Bool
+ejemF (x , y)
+    |x == 10 && y == 'a' = True
+    |otherwise = False
+
+turnosF :: (Int, Char) -> Bool
+turnosF (x , y)
+    |x > 7 && x < 19 && y /= 'D' = True
+    |otherwise = False
+
 {-
-f) (Int,Char) -> Bool
 g) (Int,Int) -> Int
 h) Int -> (Int,Int)
 i) a -> Bool
