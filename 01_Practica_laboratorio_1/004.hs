@@ -94,6 +94,10 @@ esVerdadI x = True
 
 esFalsoI :: a -> Bool
 esFalsoI x = False
-{-
-j) a -> a
--}
+
+-- j) a -> a
+identidadJ :: a -> a
+identidadJ x = x
+
+ejemJ :: a -> a
+ejemJ x = x
