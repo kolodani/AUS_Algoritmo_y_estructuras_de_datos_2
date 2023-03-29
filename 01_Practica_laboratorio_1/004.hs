@@ -49,14 +49,15 @@ potenciaC x = x * x
 ejemC :: (Int -> Int) -> (Int -> Int)
 ejemC f x = f (f x) * 3
 
+-- d) Int -> Bool
+esPar :: Int -> Bool
+esPar x = if x `mod` 2 == 0 then True else False
 
-
-
-
+esPositivo:: Int -> Bool
+esPositivo x = if x > 0 then True else False
 
 
 {-
-d) Int -> Bool
 e) Bool -> (Bool -> Bool)
 f) (Int,Char) -> Bool
 g) (Int,Int) -> Int
