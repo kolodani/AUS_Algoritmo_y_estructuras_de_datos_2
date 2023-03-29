@@ -22,7 +22,7 @@ sumar3A f = f 3
 
 -- funcion auxiliar para usar en el ejemplo a
 opuestoA :: Int -> Int
-opuestoA x = -x
+opuestoA x = - x
 
 valorAbsolutoA :: (Int -> Int) -> Int
 valorAbsolutoA f = f (-3)
@@ -53,7 +53,7 @@ ejemC f x = f (f x) * 3
 esParD :: Int -> Bool
 esParD x = if x `mod` 2 == 0 then True else False
 
-esPositivoD:: Int -> Bool
+esPositivoD :: Int -> Bool
 esPositivoD x = if x > 0 then True else False
 
 -- e) Bool -> (Bool -> Bool)
@@ -64,18 +64,24 @@ orE :: Bool -> (Bool -> Bool)
 orE x y = x || y
 
 -- f) (Int,Char) -> Bool
-ejemF :: (Int,Char) -> Bool
-ejemF (x , y)
-    |x == 10 && y == 'a' = True
-    |otherwise = False
+ejemF :: (Int, Char) -> Bool
+ejemF (x, y)
+    | x == 10 && y == 'a' = True
+    | otherwise = False
 
 turnosF :: (Int, Char) -> Bool
-turnosF (x , y)
-    |x > 7 && x < 19 && y /= 'D' = True
-    |otherwise = False
+turnosF (x, y)
+    | x > 7 && x < 19 && y /= 'D' = True
+    | otherwise = False
+
+-- g) (Int,Int) -> Int
+sumaG :: (Int, Int) -> Int
+sumaG (x, y) = x + y
+
+potenG :: (Int, Int) -> Int
+potenG (x, y) = x ^ y
 
 {-
-g) (Int,Int) -> Int
 h) Int -> (Int,Int)
 i) a -> Bool
 j) a -> a
