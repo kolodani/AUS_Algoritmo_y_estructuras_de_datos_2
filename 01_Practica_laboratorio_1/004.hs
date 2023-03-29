@@ -81,8 +81,13 @@ sumaG (x, y) = x + y
 potenG :: (Int, Int) -> Int
 potenG (x, y) = x ^ y
 
+-- h) Int -> (Int,Int)
+alPlanoH :: Int -> (Int, Int)
+alPlanoH x = (x, 2*x)
+
+alCuboH :: Int -> (Int,Int)
+alCuboH x = (x, x^3)
+
 {-
-h) Int -> (Int,Int)
-i) a -> Bool
 j) a -> a
 -}
