@@ -88,6 +88,12 @@ alPlanoH x = (x, 2*x)
 alCuboH :: Int -> (Int,Int)
 alCuboH x = (x, x^3)
 
+-- i) a -> Bool
+esVerdadI :: a -> Bool
+esVerdadI x = True
+
+esFalsoI :: a -> Bool
+esFalsoI x = False
 {-
 j) a -> a
 -}
