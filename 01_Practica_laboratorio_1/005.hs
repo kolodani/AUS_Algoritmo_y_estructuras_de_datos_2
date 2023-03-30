@@ -54,8 +54,16 @@ cuadrupla n = [(a, b, c, d) | a <- [0..n], b <- [0..n], c <- [0..n], d <- [0..n]
     las cuadruplas (a, b, c, d) que estan entre 0 y n, que cumplen la expresion a^2 + b^2 == c^2 + d^2
 -}
 
-{-
-(d) 'unique', que dada una lista 'xs' de enteros, devuelve la lista
-'xs' sin elementos repetidos
+
+-- (d) 'unique', que dada una lista 'xs' de enteros, devuelve la lista
+-- 'xs' sin elementos repetidos
+-- unique :: [Int] -> [Int]
 unique :: [Int] -> [Int]
+unique xs = [x | (x, y) <- zip xs [0..], x `notElem` take y xs]
+{-
+    tomo todos los elementos de la lista xs y los comparo con los elementos de la lista xs
+    que estan antes de ellos
+    si no estan en la lista, los agrego a la lista de unicos
+    la expresion se lee como:
+    los x elementos de la lista xs, que no estan en la lista xs que esta antes de ellos
 -}
