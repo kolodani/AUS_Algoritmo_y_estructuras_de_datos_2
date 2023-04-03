@@ -46,14 +46,22 @@ longitudes:: [[a]] -> [Int]
 longitudes [] = []
 longitudes (x:xs) = length x : longitudes xs
 
+-- h) 'orden', que dada una lista de pares de números, devuelve
+-- la lista de aquellos pares en los que la primera componente es
+-- menor que el triple de la segunda
+orden :: [(Int, Int)] -> [(Int, Int)]
+orden [] = []
+orden ((x,y):xs) = if x < 3 * y then (x,y) : orden xs else orden xs
+
+-- i) 'pares', que dada una lista de enteros, devuelve la lista
+-- de los elementos pares
+
+
+
+
+
+
 {-
-h) 'orden', que dada una lista de pares de números, devuelve
-la lista de aquellos pares en los que la primera componente es
-menor que el triple de la segunda
-
-i) 'pares', que dada una lista de enteros, devuelve la lista
-de los elementos pares
-
 j) 'letras', que dada una lista de caracteres, devuelve la
 lista de aquellos que son letras (minúsculas o mayúsculas)
 
