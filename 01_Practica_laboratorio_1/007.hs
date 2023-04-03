@@ -10,7 +10,11 @@ suma :: [Int] -> Int
 suma [] = 0
 suma (x:xs) = x + suma xs
 
-
+-- b) 'alguno', que devuelve True si algún elemento de una
+-- lista de valores booleanos es True, y False en caso contrario
+alguno :: [Bool] -> Bool
+alguno [] = False
+alguno (x:xs) = x || alguno xs
 
 
 
@@ -19,9 +23,6 @@ suma (x:xs) = x + suma xs
 
 {-
 
-b) 'alguno', que devuelve True si algún elemento de una
-lista de valores booleanos es True, y False en caso
-contrario
 
 c) 'todos', que devuelve True si todos los elementos de
 una lista de valores booleanos son True, y False en caso
