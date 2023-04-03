@@ -55,7 +55,9 @@ orden ((x,y):xs) = if x < 3 * y then (x,y) : orden xs else orden xs
 
 -- i) 'pares', que dada una lista de enteros, devuelve la lista
 -- de los elementos pares
-
+pares :: [Int] -> [Int]
+pares [] = []
+pares (x:xs) = if mod x 2 == 0 then x: pares xs else pares xs
 
 
 
