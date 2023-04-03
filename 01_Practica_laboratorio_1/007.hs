@@ -40,16 +40,13 @@ cuadrados :: [Int] -> [Int]
 cuadrados [] = []
 cuadrados (x:xs) = x ^ 2 : cuadrados xs
 
-
-
-
-
+-- g) 'longitudes', que dada una lista de listas, devuelve la
+-- lista de sus longitudes
+longitudes:: [[a]] -> [Int]
+longitudes [] = []
+longitudes (x:xs) = length x : longitudes xs
 
 {-
-
-g) 'longitudes', que dada una lista de listas, devuelve la
-lista de sus longitudes
-
 h) 'orden', que dada una lista de pares de números, devuelve
 la lista de aquellos pares en los que la primera componente es
 menor que el triple de la segunda
