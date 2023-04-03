@@ -59,13 +59,15 @@ pares :: [Int] -> [Int]
 pares [] = []
 pares (x:xs) = if mod x 2 == 0 then x: pares xs else pares xs
 
-
+-- j) 'letras', que dada una lista de caracteres, devuelve la
+-- lista de aquellos que son letras (minúsculas o mayúsculas)
+letras :: [Char] -> [Char]
+letras [] = []
+letras (x:xs) = if (x >= 'a' && x <= 'z') || (x >= 'A' && x <= 'Z') then x : letras xs else letras xs
 
 
 
 {-
-j) 'letras', que dada una lista de caracteres, devuelve la
-lista de aquellos que son letras (minúsculas o mayúsculas)
 
 k) 'masDe', que dada una lista de listas 'xss' y un
 número 'n', devuelve la lista de aquellas listas de 'xss'
