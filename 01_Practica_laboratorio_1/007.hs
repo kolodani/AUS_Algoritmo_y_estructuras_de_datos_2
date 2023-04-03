@@ -22,15 +22,14 @@ todos :: [Bool] -> Bool
 todos [] = True
 todos (x:xs) = x && todos xs
 
-
+-- d) 'codes', que dada una lista de caracteres, devuelve la
+-- lista de sus ordinales
+codes :: [Char] -> [Int]
+codes [] = []
+codes (x:xs) = (fromEnum x) : codes xs
 
 
 {-
-
-
-
-d) 'codes', que dada una lista de caracteres, devuelve la
-lista de sus ordinales
 
 e) 'restos', que calcula la lista de los restos de la
 división de los elementos de una lista de números dada por otro
