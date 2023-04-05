@@ -29,6 +29,12 @@ sign x
     | x > 0 = "+"
     | x < 0 = "-"
     | otherwise = "x igual a cero, no tiene signo"
+-- resolucion del profesor
+signo :: (Ord a, Num a, Num p) => a -> p
+signo x
+    | x > 0 = 1
+    | x < 0 = -1
+    |otherwise = 0
 
 -- g) vabs, la función valor absoluto (usando sign y sin usarla)
 -- sin usar la funcion sign
@@ -42,6 +48,9 @@ varsCon :: Num p => (p -> [Char]) -> p -> p
 varsCon f x
     | f x == "-" = -x
     | otherwise = x
+-- resolucion del profesor
+varsSigno :: (Num a, Ord a) => a -> a
+varsSigno x = signo x * x
 
 -- h) pot, que toma un entero y un número, y devuelve el resultado de
 -- elevar el segundo a la potencia dada por el primero
