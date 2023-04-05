@@ -54,7 +54,6 @@ cuadrupla n = [(a, b, c, d) | a <- [0..n], b <- [0..n], c <- [0..n], d <- [0..n]
     las cuadruplas (a, b, c, d) que estan entre 0 y n, que cumplen la expresion a^2 + b^2 == c^2 + d^2
 -}
 
-
 -- (d) 'unique', que dada una lista 'xs' de enteros, devuelve la lista
 -- 'xs' sin elementos repetidos
 -- unique :: [Int] -> [Int]
