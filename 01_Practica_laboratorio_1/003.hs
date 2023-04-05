@@ -49,3 +49,7 @@ bisiesto3 x
     | modulo4 x && not (modulo100 x) = "es bisiesto"
     | modulo4 x && modulo100 x && modulo400 x = "es bisiesto"
     | otherwise = "no es bisiesto"
+
+-- resolucion del profesor
+kk :: Integral a => a -> Bool
+kk a = (mod a 400 == 0) || (mod a 4 == 0) && not (mod a 100 == 0)
