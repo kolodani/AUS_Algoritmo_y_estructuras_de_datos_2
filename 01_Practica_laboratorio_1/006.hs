@@ -7,14 +7,18 @@ devuelva el producto escalar de dos listas.
 Sugerencia: Usar las funciones 'zip' y 'sum'.
 -}
 
-juntar :: [a] -> [b] -> [(a,b)]
+juntar :: [a] -> [b] -> [(a, b)]
 juntar xs ys = zip xs ys
 
-sumar :: Num a => [(a,a)] -> a
-sumar xs = sum [x*y | (x,y) <- xs]
+sumar :: Num a => [(a, a)] -> a
+sumar xs = sum [x * y | (x, y) <- xs]
 
 scalarProduct :: Num a => [a] -> [a] -> a
 scalarProduct xs ys = sumar (juntar xs ys)
+
+-- segundo metodo
+scalarProduct2 :: Num a => [a] -> [a] -> a
+scalarProduct2 xs ys = sum [x * y | (x, y) <- zip xs ys]
 
 {-
     juntar xs ys = zip xs ys
