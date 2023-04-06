@@ -32,6 +32,12 @@ codes (x : xs) = (fromEnum x) : codes xs
 restos :: [Int] -> Int -> [Int]
 restos [] _ = []
 restos (x : xs) n = (mod x n) : restos xs n
+-- sin usar mod
+divisionEntera :: (Integral a1, Integral a2) => a1 -> a2 -> Int
+divisionEntera x n = fromEnum ((fromIntegral x)/( fromIntegral n))
+restos2 :: [Int] -> Int -> [Int]
+restos2 [] _ = []
+restos2 (x : xs) n = (x - (divisionEntera x n) * n) : restos2 xs n
 
 -- f) 'cuadrados', que dada una lista de números, devuelva la
 -- lista de sus cuadrados
