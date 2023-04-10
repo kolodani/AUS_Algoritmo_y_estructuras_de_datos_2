@@ -2,13 +2,16 @@
 8) Redefinir las funciones del ejercicio anterior usando foldr, map y filter.
 ver su definición en https://hoogle.haskell.org/
 -}
--- a) 'suma', que suma todos los elementos de una lista de números
--- usando foldr
+-- * a) 'suma', que suma todos los elementos de una lista de números
+-- ? usando foldr
 suma :: (Foldable t, Num b) => t b -> b
 suma xs = foldr (+) 0 xs
 
--- b) 'alguno', que devuelve True si algún elemento de una
--- lista de valores booleanos es True, y False en caso contrario
+-- * b) 'alguno', que devuelve True si algún elemento de una
+-- * lista de valores booleanos es True, y False en caso contrario
+-- ? usando foldr
+algunos :: Foldable t => t Bool -> Bool
+algunos xs = foldr (||) False xs
 
 -- c) 'todos', que devuelve True si todos los elementos de
 -- una lista de valores booleanos son True, y False en caso contrario
