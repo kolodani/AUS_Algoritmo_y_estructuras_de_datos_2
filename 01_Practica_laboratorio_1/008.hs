@@ -21,6 +21,15 @@ todos xs = foldr (&&) True xs
 
 -- d) 'codes', que dada una lista de caracteres, devuelve la
 -- lista de sus ordinales
+-- ? usando map
+code :: (Num p, Enum p) => Char -> p
+code c = buscar c (zip (['a'..'n']++['ñ']++['o'..'z']) [1..])
+buscar :: Eq t => t -> [(t, p)] -> p
+buscar c [] = error "el caracter no tiene ordinal"
+buscar c ((x,i):xs) = if c == x then i else buscar c xs
+
+codes :: (Num b, Enum b) => [Char] -> [b]
+codes xs = map code xs
 
 -- e) 'restos', que calcula la lista de los restos de la división de los
 -- elementos de una lista de números dada por otro número dado
