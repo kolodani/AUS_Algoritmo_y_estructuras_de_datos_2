@@ -71,6 +71,15 @@ longitudes :: [[a]] -> [Int]
 longitudes [] = []
 longitudes (x : xs) = length x : longitudes xs
 
+-- sin usar length
+longitud :: Num p => [a] -> p
+longitud [] = 0
+longitud (x : xs) = 1 + longitud xs
+
+longitudes2 :: [[a]] -> [Int]
+longitudes2 [] = []
+longitudes2 (xs : xss) = longitud xs : longitudes2 xss
+
 -- h) 'orden', que dada una lista de pares de números, devuelve
 -- la lista de aquellos pares en los que la primera componente es
 -- menor que el triple de la segunda
