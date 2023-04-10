@@ -19,8 +19,8 @@ algunos xs = foldr (||) False xs
 todos :: Foldable t => t Bool -> Bool
 todos xs = foldr (&&) True xs
 
--- d) 'codes', que dada una lista de caracteres, devuelve la
--- lista de sus ordinales
+-- * d) 'codes', que dada una lista de caracteres, devuelve la
+-- * lista de sus ordinales
 -- ? usando map
 code :: (Num p, Enum p) => Char -> p
 code c = buscar c (zip (['a'..'n']++['ñ']++['o'..'z']) [1..])
@@ -31,8 +31,24 @@ buscar c ((x,i):xs) = if c == x then i else buscar c xs
 codes :: (Num b, Enum b) => [Char] -> [b]
 codes xs = map code xs
 
--- e) 'restos', que calcula la lista de los restos de la división de los
--- elementos de una lista de números dada por otro número dado
+-- * e) 'restos', que calcula la lista de los restos de la división de los
+-- * elementos de una lista de números dada por otro número dado
+-- ? usando map
+divInt' :: (Num a, Ord a) => a -> a -> a -> a
+divInt' _ 0 _ = error "Division por cero"
+divInt' x n d
+    | d * n < x = divInt' x n (d + 1)
+    | d * n == x = d
+    | otherwise = d - 1
+
+divInt :: (Num a, Ord a) => a -> a -> a
+divInt x n = divInt' x n 1
+
+resto :: (Num a, Ord a) => a -> a -> a
+resto n x = x - (divInt x n) * n
+
+restoMap :: (Num b, Ord b) => b -> [b] -> [b]
+restoMap n xs = map (resto n) xs
 
 -- f) 'cuadrados', que dada una lista de números, devuelva la
 -- lista de sus cuadrados
