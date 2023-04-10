@@ -55,6 +55,9 @@ divInt x n = divInt' x n 1
 resto :: (Num a, Ord a) => a -> a -> a
 resto n x = x - (divInt x n) * n
 
+restosP :: (Num a, Ord a) => a -> [a] -> [a]
+restosP _ [] = []
+restosP n (x:xs) = resto n x : restosP n xs
 
 -- f) 'cuadrados', que dada una lista de números, devuelva la
 -- lista de sus cuadrados
