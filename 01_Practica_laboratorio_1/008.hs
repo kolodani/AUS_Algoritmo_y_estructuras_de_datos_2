@@ -13,8 +13,11 @@ suma xs = foldr (+) 0 xs
 algunos :: Foldable t => t Bool -> Bool
 algunos xs = foldr (||) False xs
 
--- c) 'todos', que devuelve True si todos los elementos de
--- una lista de valores booleanos son True, y False en caso contrario
+-- * c) 'todos', que devuelve True si todos los elementos de
+-- * una lista de valores booleanos son True, y False en caso contrario
+-- ? usando foldr
+todos :: Foldable t => t Bool -> Bool
+todos xs = foldr (&&) True xs
 
 -- d) 'codes', que dada una lista de caracteres, devuelve la
 -- lista de sus ordinales
