@@ -32,12 +32,29 @@ codes (x : xs) = (fromEnum x) : codes xs
 restos :: [Int] -> Int -> [Int]
 restos [] _ = []
 restos (x : xs) n = (mod x n) : restos xs n
+
 -- sin usar mod
 divisionEntera :: (Integral a1, Integral a2) => a1 -> a2 -> Int
 divisionEntera x n = fromEnum ((fromIntegral x)/( fromIntegral n))
+
 restos2 :: [Int] -> Int -> [Int]
 restos2 [] _ = []
 restos2 (x : xs) n = (x - (divisionEntera x n) * n) : restos2 xs n
+
+-- ejemplo del profesor
+divInt' :: (Num a, Ord a) => a -> a -> a -> a
+divInt' _ 0 _ = error "Division por cero"
+divInt' x n d
+    | d * n < x = divInt' x n (d + 1)
+    | d * n == x = d
+    | otherwise = d - 1
+
+divInt :: (Num a, Ord a) => a -> a -> a
+divInt x n = divInt' x n 1
+
+resto :: (Num a, Ord a) => a -> a -> a
+resto n x = x - (divInt x n) * n
+
 
 -- f) 'cuadrados', que dada una lista de números, devuelva la
 -- lista de sus cuadrados
