@@ -62,9 +62,12 @@ cuadrados xs = map (^2) xs
 longitudes :: [[a]] -> [Int]
 longitudes xss = map length xss
 
--- h) 'orden', que dada una lista de pares de números, devuelve
--- la lista de aquellos pares en los que la primera componente es
--- menor que el triple de la segunda
+-- * h) 'orden', que dada una lista de pares de números, devuelve
+-- * la lista de aquellos pares en los que la primera componente es
+-- * menor que el triple de la segunda
+-- ? usando filter
+orden :: (Ord a, Num a) => [(a, a)] -> [(a, a)]
+orden xs = filter (\(x,y) -> x < 3*y) xs
 
 -- i) 'pares', que dada una lista de enteros, devuelve la lista
 -- de los elementos pares
