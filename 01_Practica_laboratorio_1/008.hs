@@ -75,8 +75,11 @@ orden xs = filter (\(x,y) -> x < 3*y) xs
 pares :: Integral a => [a] -> [a]
 pares xs = filter even xs
 
--- j) 'letras', que dada una lista de caracteres, devuelve la
--- lista de aquellos que son letras (minúsculas o mayúsculas)
+-- * j) 'letras', que dada una lista de caracteres, devuelve la
+-- * lista de aquellos que son letras (minúsculas o mayúsculas)
+-- ? usando filter
+letras :: [Char] -> [Char]
+letras xs = filter (\x -> x >= 'a' && x <= 'z' || x >= 'A' && x <= 'Z') xs
 
 -- k) 'masDe', que dada una lista de listas 'xss' y un
 -- número 'n', devuelve la lista de aquellas listas de 'xss'
