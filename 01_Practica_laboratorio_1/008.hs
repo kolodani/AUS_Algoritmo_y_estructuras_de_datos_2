@@ -56,8 +56,11 @@ restoMap n xs = map (resto n) xs
 cuadrados :: Num b => [b] -> [b]
 cuadrados xs = map (^2) xs
 
--- g) 'longitudes', que dada una lista de listas, devuelve la
--- lista de sus longitudes
+-- * g) 'longitudes', que dada una lista de listas, devuelve la
+-- * lista de sus longitudes
+-- ? map
+longitudes :: [[a]] -> [Int]
+longitudes xss = map length xss
 
 -- h) 'orden', que dada una lista de pares de números, devuelve
 -- la lista de aquellos pares en los que la primera componente es
