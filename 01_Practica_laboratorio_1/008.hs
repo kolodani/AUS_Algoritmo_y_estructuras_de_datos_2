@@ -2,6 +2,7 @@
 8) Redefinir las funciones del ejercicio anterior usando foldr, map y filter.
 ver su definición en https://hoogle.haskell.org/
 -}
+
 -- * a) 'suma', que suma todos los elementos de una lista de números
 -- ? usando foldr
 suma :: (Foldable t, Num b) => t b -> b
@@ -23,10 +24,11 @@ todos xs = foldr (&&) True xs
 -- * lista de sus ordinales
 -- ? usando map
 code :: (Num p, Enum p) => Char -> p
-code c = buscar c (zip (['a'..'n']++['ñ']++['o'..'z']) [1..])
+code c = buscar c (zip (['a' .. 'n'] ++ ['ñ'] ++ ['o' .. 'z']) [1 ..])
+
 buscar :: Eq t => t -> [(t, p)] -> p
 buscar c [] = error "el caracter no tiene ordinal"
-buscar c ((x,i):xs) = if c == x then i else buscar c xs
+buscar c ((x, i) : xs) = if c == x then i else buscar c xs
 
 codes :: (Num b, Enum b) => [Char] -> [b]
 codes xs = map code xs
@@ -54,7 +56,7 @@ restoMap n xs = map (resto n) xs
 -- * lista de sus cuadrados
 -- ? usando map
 cuadrados :: Num b => [b] -> [b]
-cuadrados xs = map (^2) xs
+cuadrados xs = map (^ 2) xs
 
 -- * g) 'longitudes', que dada una lista de listas, devuelve la
 -- * lista de sus longitudes
@@ -67,7 +69,7 @@ longitudes xss = map length xss
 -- * menor que el triple de la segunda
 -- ? usando filter
 orden :: (Ord a, Num a) => [(a, a)] -> [(a, a)]
-orden xs = filter (\(x,y) -> x < 3*y) xs
+orden xs = filter (\(x, y) -> x < 3 * y) xs
 
 -- * i) 'pares', que dada una lista de enteros, devuelve la lista
 -- * de los elementos pares
@@ -81,6 +83,9 @@ pares xs = filter even xs
 letras :: [Char] -> [Char]
 letras xs = filter (\x -> x >= 'a' && x <= 'z' || x >= 'A' && x <= 'Z') xs
 
--- k) 'masDe', que dada una lista de listas 'xss' y un
--- número 'n', devuelve la lista de aquellas listas de 'xss'
--- con longitud mayor que 'n'
+-- * k) 'masDe', que dada una lista de listas 'xss' y un
+-- * número 'n', devuelve la lista de aquellas listas de 'xss'
+-- * con longitud mayor que 'n'
+-- ? usando filter
+masDe :: [[a]] -> Int -> [[a]]
+masDe xss n = filter (\xs -> length xs > n) xss
