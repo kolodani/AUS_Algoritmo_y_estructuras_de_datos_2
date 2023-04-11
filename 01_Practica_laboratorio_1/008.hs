@@ -69,8 +69,11 @@ longitudes xss = map length xss
 orden :: (Ord a, Num a) => [(a, a)] -> [(a, a)]
 orden xs = filter (\(x,y) -> x < 3*y) xs
 
--- i) 'pares', que dada una lista de enteros, devuelve la lista
--- de los elementos pares
+-- * i) 'pares', que dada una lista de enteros, devuelve la lista
+-- * de los elementos pares
+-- ? usando filter
+pares :: Integral a => [a] -> [a]
+pares xs = filter even xs
 
 -- j) 'letras', que dada una lista de caracteres, devuelve la
 -- lista de aquellos que son letras (minúsculas o mayúsculas)
