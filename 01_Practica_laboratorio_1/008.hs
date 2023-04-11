@@ -50,8 +50,11 @@ resto n x = x - (divInt x n) * n
 restoMap :: (Num b, Ord b) => b -> [b] -> [b]
 restoMap n xs = map (resto n) xs
 
--- f) 'cuadrados', que dada una lista de números, devuelva la
--- lista de sus cuadrados
+-- * f) 'cuadrados', que dada una lista de números, devuelva la
+-- * lista de sus cuadrados
+-- ? usando map
+cuadrados :: Num b => [b] -> [b]
+cuadrados xs = map (^2) xs
 
 -- g) 'longitudes', que dada una lista de listas, devuelve la
 -- lista de sus longitudes
