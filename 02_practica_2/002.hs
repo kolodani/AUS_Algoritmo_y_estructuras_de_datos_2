@@ -31,10 +31,13 @@ vacia :: Linea
 vacia = Linea "" 0
 
 moverIzq :: Linea -> Linea
+moverIzq (Linea s 0) = Linea s 0
 moverIzq (Linea s p) = Linea s (p-1)
 
 moverDer :: Linea -> Linea
-moverDer (Linea s p) = Linea s (p+1)
+moverDer (Linea s p)
+    | p == length s = Linea s p
+    | otherwise = Linea s (p+1)
 
 moverIni :: Linea -> Linea
 moverIni (Linea s p) = Linea s 0
@@ -55,10 +58,13 @@ vacia' :: Linea'
 vacia' = ("", 0)
 
 moverIzq' :: Linea' -> Linea'
+moverIzq' (s, 0) = (s, 0)
 moverIzq' (s, p) = (s, p-1)
 
 moverDer' :: Linea' -> Linea'
-moverDer' (s, p) = (s, p+1)
+moverDer' (s, p)
+    | p == length s = (s, p)
+    | otherwise = (s, p+1)
 
 moverIni' :: Linea' -> Linea'
 moverIni' (s, p) = (s, 0)
@@ -70,4 +76,5 @@ insertar' :: Char -> Linea' -> Linea'
 insertar' c (s, p) = (take p s ++ [c] ++ drop p s, p+1)
 
 borrar' :: Linea' -> Linea'
+borrar' (s, 0) = (s, 0)
 borrar' (s, p) = (take (p-1) s ++ drop p s, p-1)
