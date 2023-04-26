@@ -25,7 +25,7 @@ y lo mueve una posición a la derecha.
 Definir un tipo de datos Lı́nea e implementar las operaciones dadas.
 -}
 
-data Linea = Linea String Int
+data Linea = Linea [Char] Int
 
 vacia :: Linea
 vacia = Linea "" 0
@@ -52,7 +52,7 @@ borrar :: Linea -> Linea
 borrar (Linea s p) = Linea (take (p-1) s ++ drop p s) (p-1)
 
 -- usando type
-type Linea' = (String, Int)
+type Linea' = ([Char], Int)
 
 vacia' :: Linea'
 vacia' = ("", 0)
@@ -73,7 +73,12 @@ moverFin' :: Linea' -> Linea'
 moverFin' (s, p) = (s, length s)
 
 insertar' :: Char -> Linea' -> Linea'
-insertar' c (s, p) = (take p s ++ [c] ++ drop p s, p+1)
+insertar' e ([], p) = ([e], 1)
+insertar' e (cs, p) = (ins e cs p, p+1)
+ins :: Char -> [Char] -> Int -> [Char]
+ins e cs 0 = e:cs
+ins e [] p= error "posicion invalida del cursor"
+ins e (c:cs) n = c:ins e cs (n-1)
 
 borrar' :: Linea' -> Linea'
 borrar' (s, 0) = (s, 0)
