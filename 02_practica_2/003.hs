@@ -40,3 +40,9 @@ isEmptyCL _ = False
 isCUnit :: CList a -> Bool
 isCUnit (CUnit a) = True
 isCUnit _ = False
+
+-- b)
+reverseCL :: CList a -> CList a
+reverseCL EmptyCL = EmptyCL
+reverseCL (CUnit a) = CUnit a
+reverseCL (Consnoc a xs b) = Consnoc b (reverseCL xs) a
