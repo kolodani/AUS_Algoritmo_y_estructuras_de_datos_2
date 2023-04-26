@@ -46,3 +46,14 @@ reverseCL :: CList a -> CList a
 reverseCL EmptyCL = EmptyCL
 reverseCL (CUnit a) = CUnit a
 reverseCL (Consnoc a xs b) = Consnoc b (reverseCL xs) a
+
+-- c)
+inits :: CList a -> CList (CList a)
+inits EmptyCL = CUnit EmptyCL
+inits (CUnit a) = Consnoc EmptyCL EmptyCL (CUnit a)
+inits (Consnoc a xs b) = Consnoc EmptyCL (inits' (Consnoc a xs b)) (CUnit a)
+
+inits' :: CList a -> CList (CList a)
+inits' EmptyCL = EmptyCL
+inits' (CUnit a) = CUnit (CUnit a)
+inits' (Consnoc a xs b) = Consnoc (CUnit a) (inits' (Consnoc a xs b)) (Consnoc a xs b)
