@@ -15,3 +15,14 @@ eval (Prod a b) = eval a * eval b
 eval (Div a b)
     | eval b == 0 = error "Division por cero"
     | otherwise = eval a `div` eval b
+
+-- b)
+
+seval :: Aexp -> Maybe Int
+seval (Num n) = Just n
+seval (Prod a b) = case (seval a, seval b) of
+    (Just x, Just y) -> Just (x * y)
+    _ -> Nothing
+seval (Div a b) = case (seval a, seval b) of
+    (Just x, Just y) -> if y == 0 then Nothing else Just (x `div` y)
+    _ -> Nothing
