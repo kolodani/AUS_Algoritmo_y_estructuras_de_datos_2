@@ -31,7 +31,7 @@ headCL (Consnoc a _ _) = a
 tailCL :: CList a -> CList a
 tailCL EmptyCL = error "EmptyCL"
 tailCL (CUnit a) = EmptyCL
-tailCL (Consnoc a xs b) = xs
+tailCL (Consnoc a xs b) = Consnoc (headCL xs) (tailCL xs) b
 
 isEmptyCL :: CList a -> Bool
 isEmptyCL EmptyCL = True
@@ -57,3 +57,16 @@ inits' :: CList a -> CList (CList a)
 inits' EmptyCL = EmptyCL
 inits' (CUnit a) = CUnit (CUnit a)
 inits' (Consnoc a xs b) = Consnoc (CUnit a) (inits' (Consnoc a xs b)) (Consnoc a xs b)
+
+-- d)
+
+lasts :: CList a -> CList (CList a)
+lasts EmptyCL = CUnit EmptyCL
+lasts (CUnit a) = Consnoc (CUnit a) EmptyCL EmptyCL
+lasts (Consnoc a xs b) = Consnoc (Consnoc a xs b) (lasts' (Consnoc a xs b)) EmptyCL
+
+lasts' :: CList a -> CList (CList a)
+lasts' EmptyCL = EmptyCL
+lasts' (CUnit a) = CUnit (CUnit a)
+lasts' (Consnoc a xs b) = Consnoc (Consnoc a xs b) EmptyCL (lasts' (Consnoc a xs b))
+
