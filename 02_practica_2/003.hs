@@ -26,12 +26,12 @@ data CList a = EmptyCL | CUnit a | Consnoc a (CList a) a
 headCL :: CList a -> a
 headCL EmptyCL = error "EmptyCL"
 headCL (CUnit a) = a
-headCL (Consnoc a _ _) = a
+headCL (Consnoc a b c) = a
 
 tailCL :: CList a -> CList a
 tailCL EmptyCL = error "EmptyCL"
 tailCL (CUnit a) = EmptyCL
-tailCL (Consnoc a xs b) = Consnoc (headCL xs) (tailCL xs) b
+tailCL (Consnoc a b c) = Consnoc (headCL b) (tailCL b) c
 
 isEmptyCL :: CList a -> Bool
 isEmptyCL EmptyCL = True
@@ -49,24 +49,31 @@ reverseCL (Consnoc a xs b) = Consnoc b (reverseCL xs) a
 
 -- c)
 inits :: CList a -> CList (CList a)
-inits EmptyCL = CUnit EmptyCL
-inits (CUnit a) = Consnoc EmptyCL EmptyCL (CUnit a)
-inits (Consnoc a xs b) = Consnoc EmptyCL (inits' (Consnoc a xs b)) (CUnit a)
+inits EmptyCL = EmptyCL
+inits (CUnit a) = CUnit EmptyCL
+inits (Consnoc a xs b) = Consnoc EmptyCL (inits' (Consnoc a xs b)) (Consnoc a xs b)
 
 inits' :: CList a -> CList (CList a)
 inits' EmptyCL = EmptyCL
 inits' (CUnit a) = CUnit (CUnit a)
-inits' (Consnoc a xs b) = Consnoc (CUnit a) (inits' (Consnoc a xs b)) (Consnoc a xs b)
+inits' (Consnoc a xs b) = Consnoc EmptyCL (inits' (Consnoc a xs b)) (Consnoc a xs b)
 
 -- d)
 
 lasts :: CList a -> CList (CList a)
-lasts EmptyCL = CUnit EmptyCL
-lasts (CUnit a) = Consnoc (CUnit a) EmptyCL EmptyCL
+lasts EmptyCL = EmptyCL
+lasts (CUnit a) = CUnit (CUnit a)
 lasts (Consnoc a xs b) = Consnoc (Consnoc a xs b) (lasts' (Consnoc a xs b)) EmptyCL
 
 lasts' :: CList a -> CList (CList a)
 lasts' EmptyCL = EmptyCL
 lasts' (CUnit a) = CUnit (CUnit a)
-lasts' (Consnoc a xs b) = Consnoc (Consnoc a xs b) EmptyCL (lasts' (Consnoc a xs b))
+lasts' (Consnoc a xs b) = Consnoc (Consnoc a xs b) (lasts' (Consnoc a xs b)) EmptyCL
 
+-- e)
+{-
+concatCL :: CList (CList a) -> CList a
+concatCL EmptyCL = EmptyCL
+concatCL (CUnit a) = a
+concatCL (Consnoc a xs b) = Consnoc (headCL a) (concatCL (tailCL a)) (headCL b)
+-}
