@@ -20,7 +20,7 @@ e) Definir una función concatCL que toma una CList de CList
 y devuelve la CList con todas ellas concatenadas
 -}
 
-data CList a = EmptyCL | CUnit a | Consnoc a (CList a) a
+data CList a = EmptyCL | CUnit a | Consnoc a (CList a) a deriving Show
 
 -- a)
 headCL :: CList a -> a
@@ -48,32 +48,29 @@ reverseCL (CUnit a) = CUnit a
 reverseCL (Consnoc a xs b) = Consnoc b (reverseCL xs) a
 
 -- c)
+cons :: a -> CList a -> CList a
+cons a EmptyCL = CUnit a
+cons a (CUnit b) = Consnoc a EmptyCL b
+cons a (Consnoc b xs c) = Consnoc a (cons b xs) c
+
+snoc :: CList a -> a -> CList a
+snoc EmptyCL a = CUnit a
+snoc (CUnit a) b = Consnoc a EmptyCL b
+snoc (Consnoc a xs b) c = Consnoc a (snoc xs b) c
+
 inits :: CList a -> CList (CList a)
 inits EmptyCL = EmptyCL
-inits (CUnit a) = CUnit EmptyCL
-inits (Consnoc a xs b) = Consnoc EmptyCL (inits' (Consnoc a xs b)) (Consnoc a xs b)
-
-inits' :: CList a -> CList (CList a)
-inits' EmptyCL = EmptyCL
-inits' (CUnit a) = CUnit (CUnit a)
-inits' (Consnoc a xs b) = Consnoc EmptyCL (inits' (Consnoc a xs b)) (Consnoc a xs b)
+inits (CUnit a) = Consnoc EmptyCL EmptyCL (CUnit a)
+inits (Consnoc a xs b) = Consnoc EmptyCL (inits (cons a xs)) (Consnoc a xs b)
 
 -- d)
-
 lasts :: CList a -> CList (CList a)
 lasts EmptyCL = EmptyCL
-lasts (CUnit a) = CUnit (CUnit a)
-lasts (Consnoc a xs b) = Consnoc (Consnoc a xs b) (lasts' (Consnoc a xs b)) EmptyCL
-
-lasts' :: CList a -> CList (CList a)
-lasts' EmptyCL = EmptyCL
-lasts' (CUnit a) = CUnit (CUnit a)
-lasts' (Consnoc a xs b) = Consnoc (Consnoc a xs b) (lasts' (Consnoc a xs b)) EmptyCL
+lasts (CUnit a) = Consnoc (CUnit a) EmptyCL EmptyCL
+lasts (Consnoc a xs b) = Consnoc (Consnoc a xs b) (lasts (snoc xs b)) EmptyCL
 
 -- e)
-{-
 concatCL :: CList (CList a) -> CList a
 concatCL EmptyCL = EmptyCL
 concatCL (CUnit a) = a
-concatCL (Consnoc a xs b) = Consnoc (headCL a) (concatCL (tailCL a)) (headCL b)
--}
+concatCL (Consnoc a xs b) = concatCL (snoc xs b)
