@@ -16,3 +16,8 @@ completo :: a -> Int -> Tree a
 completo x 0 = NodeT EmptyT x EmptyT
 completo x d = NodeT (completo x (d-1)) x (completo x (d-1))
 
+-- b)
+balanceado :: a -> Int -> Tree a
+balanceado x 0 = EmptyT
+balanceado x 1 = NodeT EmptyT x EmptyT
+balanceado x n = NodeT (balanceado x (div n 2)) x (balanceado x (div n 2))
