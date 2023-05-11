@@ -26,11 +26,12 @@ data CList a = EmptyCL | CUnit a | Consnoc a (CList a) a deriving Show
 headCL :: CList a -> a
 headCL EmptyCL = error "EmptyCL"
 headCL (CUnit a) = a
-headCL (Consnoc a b c) = a
+headCL (Consnoc a _ _) = a
 
 tailCL :: CList a -> CList a
 tailCL EmptyCL = error "EmptyCL"
 tailCL (CUnit a) = EmptyCL
+tailCL (Consnoc _ (EmptyCL) a) = CUnit a
 tailCL (Consnoc a b c) = Consnoc (headCL b) (tailCL b) c
 
 isEmptyCL :: CList a -> Bool
@@ -59,7 +60,7 @@ snoc (CUnit a) b = Consnoc a EmptyCL b
 snoc (Consnoc a xs b) c = Consnoc a (snoc xs b) c
 
 inits :: CList a -> CList (CList a)
-inits EmptyCL = EmptyCL
+inits EmptyCL = CUnit EmptyCL
 inits (CUnit a) = Consnoc EmptyCL EmptyCL (CUnit a)
 inits (Consnoc a xs b) = Consnoc EmptyCL (inits (cons a xs)) (Consnoc a xs b)
 
