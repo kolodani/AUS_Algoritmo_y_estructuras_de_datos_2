@@ -12,18 +12,21 @@ b) Reemplazar las llamadas a balance en ins por llamadas a alguna de estas dos f
 data Color = R | B deriving Show
 data RBT a = E | T Color (RBT a) a (RBT a) deriving Show
 
-balance :: Color -> RBT a -> a -> RBT a -> RBT a
-balance B (T R (T R a x b) y c) z d = T R (T B a x b) y (T B c z d)
-balance B (T R a x (T R b y c)) z d = T R (T B a x b) y (T B c z d)
-balance B a x (T R (T R b y c) z d) = T R (T B a x b) y (T B c z d)
-balance B a x (T R b y (T R c z d)) = T R (T B a x b) y (T B c z d)
-balance c l a r = T c l a r
+balancel :: Color -> RBT a -> a -> RBT a -> RBT a
+balancel B (T R (T R a x b) y c) z d = T R (T B a x b) y (T B c z d)
+balancel B (T R a x (T R b y c)) z d = T R (T B a x b) y (T B c z d)
+balancel c l a r = T c l a r
+
+balancer :: Color -> RBT a -> a -> RBT a -> RBT a
+balancer B a x (T R (T R b y c) z d) = T R (T B a x b) y (T B c z d)
+balancer B a x (T R b y (T R c z d)) = T R (T B a x b) y (T B c z d)
+balancer c l a r = T c l a r
 
 insert :: Ord a => a -> RBT a -> RBT a
 insert x t = makeBlack (ins x t)
     where   ins x E                       = T R E x E
-            ins x (T c l y r )  | x < y    = balance c (ins x l) y r
-                                | x > y    = balance c l y (ins x r )
+            ins x (T c l y r )  | x < y    = balancel c (ins x l) y r
+                                | x > y    = balancer c l y (ins x r )
                                 | otherwise = T c l y r
 
 makeBlack :: RBT a -> RBT a
