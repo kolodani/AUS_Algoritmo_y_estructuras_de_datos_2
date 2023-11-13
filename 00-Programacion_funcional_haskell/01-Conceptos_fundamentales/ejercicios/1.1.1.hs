@@ -9,3 +9,9 @@ cuadrado x  = x * x
 
 cuarta :: Integer -> Integer
 cuarta x = (cuadrado x) * (cuadrado x)
+
+cuartaB :: Integer -> Integer
+cuartaB x = cuadrado (cuadrado x)
+
+cuartaC :: Integer -> Integer
+cuartaC x = x * x * x * x
