@@ -146,4 +146,4 @@ masDe n [] = []
 masDe n (x : xs) = if n < contador x then x : masDe n xs else masDe n xs
 
 masDe' :: Int -> [[Int]] -> [[Int]]
-masDe' n (x:xs) = filter (\x -> length x > n) xs
+masDe' n (x : xs) = filter (\x -> length x > n) xs

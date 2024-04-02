@@ -86,4 +86,4 @@ letras (x : xs) = if (x >= 'a' && x <= 'z') || (x >= 'A' && x <= 'Z') then x : l
 -- con longitud mayor que 'n'
 masDe :: Int -> [[Int]] -> [[Int]]
 masDe n [] = []
-masDe n (x:xs) = if n < contador x then x:masDe n xs else masDe n xs
+masDe n (x : xs) = if n < contador x then x : masDe n xs else masDe n xs
