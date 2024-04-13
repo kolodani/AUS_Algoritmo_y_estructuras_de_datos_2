@@ -28,12 +28,12 @@ foo6 x y z = x ++ y z
 
 -- g) foo7 a b = if b a then head a else [ ]
 foo7 :: [[a]] -> ([[a]] -> Bool) -> [a]
-foo7 a b = if b a then head a else [ ]
+foo7 a b = if b a then head a else []
 
 -- h) foo8 a b = if b a then a else [ ]
 foo8 :: [a] -> ([a] -> Bool) -> [a]
-foo8 a b = if b a then a else [ ]
+foo8 a b = if b a then a else []
 
 -- i) foo9 a b = if b a then head (:a) else (:[ ])
---foo9 :: [a1] -> ([a1] -> Bool) -> a2 -> [a2]
---foo9 a b = if b a then head (:a) else (:[])
+-- foo9 :: [a1] -> ([a1] -> Bool) -> a2 -> [a2]
+-- foo9 a b = if b a then head (:a) else (:[])

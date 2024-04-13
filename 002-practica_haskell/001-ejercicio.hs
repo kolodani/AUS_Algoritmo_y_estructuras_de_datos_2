@@ -56,11 +56,11 @@ isosceles a b c
 cabeza :: Int -> [Int] -> [Int]
 cabeza 0 [] = []
 cabeza 0 xs = []
-cabeza n (x : xs) = x : cabeza (n -1) xs
+cabeza n (x : xs) = x : cabeza (n - 1) xs
 
 cola :: Int -> [Int] -> [Int]
 cola _ [] = []
-cola n (x : xs) = if n <= 0 then x : cola (n-1) xs else cola (n-1) xs
+cola n (x : xs) = if n <= 0 then x : cola (n - 1) xs else cola (n - 1) xs
 
 ror :: Int -> [Int] -> [Int]
 ror n xs = cola n xs ++ cabeza n xs
@@ -69,19 +69,18 @@ ror n xs = cola n xs ++ cabeza n xs
 -- 2, ..., m ] en caso que n ⩽ m y la lista [ ] en otro caso. No usar listas por comprensión.
 
 upto :: Int -> Int -> [Int]
-upto n m = if n <= m then n : upto (n+1) m else []
-
+upto n m = if n <= m then n : upto (n + 1) m else []
 
 -- h) eco que devuelve la cadena obtenida a partir de la cadena xs repitiendo cada elemento tantas
 -- veces como indica su posición. No usar listas por comprensión.
 -- Por ejemplo: eco "hola" = "hoolllaaaa"
 
 eco :: [Char] -> [Char]
-eco xs = foldr (++) [] (map (\(c,i) -> reververar (c,i)) (transformador xs))
+eco xs = foldr (++) [] (map (\(c, i) -> reververar (c, i)) (transformador xs))
 
-transformador :: [Char] -> [(Char,Int)]
-transformador xs = zip xs [1..]
+transformador :: [Char] -> [(Char, Int)]
+transformador xs = zip xs [1 ..]
 
 reververar :: (Char, Int) -> [Char]
-reververar (_,0) = []
-reververar (c,i) = c : reververar (c,i-1)
+reververar (_, 0) = []
+reververar (c, i) = c : reververar (c, i - 1)

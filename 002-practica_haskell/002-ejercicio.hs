@@ -56,12 +56,12 @@ euler n = sum [x | x <- [1 .. n - 1], x `mod` 3 == 0 || x `mod` 5 == 0]
 duplicador :: [Int] -> [(Int, Int)]
 duplicador xs = zip xs xs
 
-multiple:: (Int, Int) -> [Int]
+multiple :: (Int, Int) -> [Int]
 multiple (_, 0) = []
 multiple (x, y) = x : multiple (x, y - 1)
 
 expandir :: [Int] -> [Int]
-expandir xs = foldr (++) [] (map (\(x,y) -> multiple (x,y))(duplicador xs))
+expandir xs = foldr (++) [] (map (\(x, y) -> multiple (x, y)) (duplicador xs))
 
 -- ahora lo hacemos pero con listas por comprension
 expandir2 :: [Int] -> [Int]

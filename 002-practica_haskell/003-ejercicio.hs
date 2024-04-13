@@ -107,13 +107,13 @@ repetidas (a, b, c)
 -- en este caso, la función recibe una tupla de tres elementos de tipo a y devuelve una función que recibe un entero y devuelve un elemento de tipo c
 igualitos :: Int -> Int -> Int
 igualitos x y
-    |x == y = 1
-    |otherwise = 0
+  | x == y = 1
+  | otherwise = 0
 
-elementoIgual :: (Int ,Int, Int) -> Int -> Int
+elementoIgual :: (Int, Int, Int) -> Int -> Int
 elementoIgual (a, b, c) x = sum [igualitos a x, igualitos b x, igualitos c x]
 
-multiplicar :: (Int ,Int, Int) -> Int -> Int
+multiplicar :: (Int, Int, Int) -> Int -> Int
 multiplicar (a, b, c) x = a * x + b * x + c * x
 
 -- i) (a, a, a) → Int → a
