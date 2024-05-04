@@ -6,13 +6,13 @@
 
 data BST a = EmptyBST | Node (BST a) a (BST a) deriving Show
 
--- 1
+-- 1. maximum
 maximumBST :: BST a -> a
-maximumBST EmptyBST = error "Empty tree"
+maximumBST EmptyBST = error "error arbol vacio"
 maximumBST (Node _ x EmptyBST) = x
 maximumBST (Node _ _ r) = maximumBST r
 
--- 2
+-- 2. checkBST
 checkBST :: Ord a => BST a -> Bool
 checkBST EmptyBST = True
 checkBST (Node EmptyBST _ EmptyBST) = True
