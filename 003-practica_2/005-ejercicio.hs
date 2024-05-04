@@ -9,14 +9,14 @@ b) balanceado :: a → Int → Tree a, tal que dado un valor x de tipo a y un en
 binario balanceado de tamaño n, con el valor x en cada nodo.
 -}
 
-data Tree a = EmptyT | NodeT (Tree a) a (Tree a) deriving Show
+data Tree a = EmptyT | NodeT (Tree a) a (Tree a) deriving (Show)
 
--- a)
+-- a) completo
 completo :: a -> Int -> Tree a
 completo x 0 = NodeT EmptyT x EmptyT
-completo x d = NodeT (completo x (d-1)) x (completo x (d-1))
+completo x d = NodeT (completo x (d - 1)) x (completo x (d - 1))
 
--- b)
+-- b) balanceado
 balanceado :: a -> Int -> Tree a
 balanceado x 0 = EmptyT
 balanceado x 1 = NodeT EmptyT x EmptyT
