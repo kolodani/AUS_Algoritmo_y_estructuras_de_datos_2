@@ -4,6 +4,7 @@ lista ordenada sin elementos repetidos. La función debe ser de orden O(n).
 -}
 
 data Color = R | B deriving (Show, Eq)
+
 data RBT a = E | T Color (RBT a) a (RBT a) deriving (Show, Eq)
 
 fromOrdList :: [a] -> RBT a
