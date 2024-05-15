@@ -43,4 +43,3 @@ selec (R:xs) (N a b) = selec xs b
 selec _ _ = error "No se puede seleccionar"
 
 arbolito = N (N (H 3) (H 4)) (H 5)
-
