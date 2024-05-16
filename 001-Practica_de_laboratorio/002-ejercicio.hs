@@ -30,6 +30,12 @@ sign x
   | x < 0 = -1
   | otherwise = 0
 
+sign2 :: (Ord a, Num a) => a -> String
+sign2 x
+    | x > 0 = "Positivo"
+    | x < 0 = "Negativo"
+    | otherwise = "Cero"
+
 -- g) vabs, la función valor absoluto (usando sign y sin usarla)
 vabsign :: (Ord a, Num a) => a -> a
 vabsign x
@@ -58,6 +64,9 @@ max3 a b c
   | a > b && a > c = a
   | b > a && b > c = b
   | otherwise = c
+
+max3' :: Ord a => a -> a -> a -> a
+max3' a b c = max (max a b) c
 
 -- k) swap, que toma un par y devuelve el par con sus componentes invertidas
 swap :: (b, a) -> (a, b)

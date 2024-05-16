@@ -25,3 +25,16 @@ unique :: [Int] -> [Int]
 unique [] = []
 unique [x] = [x]
 unique (x:xs) = x : unique [y | y <- xs, y /= x]
+
+-- las listas por comprension se componen de tres partes:
+-- 1) la expresion que se va a evaluar
+-- 2) la variable que se va a usar
+-- 3) la lista de la que se va a tomar los valores
+-- por ejemplo:
+-- [x | x `mod` 2 == 0, x <- [1..10]]
+-- en este caso la expresion es x, la variable es x y la lista es [1..10]
+-- esto da como resultado una lista con los numeros pares del 1 al 10
+-- [2,4,6,8,10]
+-- podemos agregar mas condiciones a la lista por comprension
+-- [x | x `mod` 2 == 0, x `mod` 3 == 0, x <- [1..10]]
+-- esto nos daria la lista [6] ya que es el unico elemento que cumple ambas condiciones
