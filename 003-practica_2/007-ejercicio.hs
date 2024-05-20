@@ -10,8 +10,18 @@ a ⩽ b retornó True) y que chequee que los elementos son iguales sólo cuando 
 
 data Tree a = EmptyT | NodeT (Tree a) a (Tree a) deriving (Show)
 
+-- definimos el tipo de dato Tree que puede ser un arbol vacio o un nodo que contiene un valor de tipo a y dos
+-- subarboles de tipo Tree a, que son los hijos izquierdo y derecho respectivamente. Los mismos pueden tener valores
+-- o ser arboles vacios
+
+member :: (Ord t) => t -> Tree t -> Bool
 member e EmptyT = False
 member e (NodeT t1 x t2)
   | e == x = True
   | e < x = member e t1
   | otherwise = member e t2
+
+-- para definir a member, si el arbol es vacio, entonces el elemento no esta en el arbol. Si el arbol es un nodo, si
+-- el elemento es igual al valor del nodo, entonces el elemento esta en el arbol. Si el elemento es menor que el varor
+-- del nodo, entonces el elemento esta en el subarbol izquierdo. Si el elemento es mayor que el valor del nodo, entonces
+-- el elemento esta en el subarbol derecho.

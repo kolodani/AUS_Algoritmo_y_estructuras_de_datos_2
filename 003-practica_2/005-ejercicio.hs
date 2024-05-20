@@ -11,13 +11,24 @@ binario balanceado de tamaño n, con el valor x en cada nodo.
 
 data Tree a = EmptyT | NodeT (Tree a) a (Tree a) deriving (Show)
 
+-- definimos el tipo de dato Tree que puede ser un arbol vacio o un nodo que contiene un valor de tipo a y dos
+-- subarboles de tipo Tree a, que son los hijos izquierdo y derecho respectivamente. Los mismos pueden tener
+-- valores o ser arboles vacios.
+
 -- a) completo
 completo :: a -> Int -> Tree a
 completo x 0 = NodeT EmptyT x EmptyT
 completo x d = NodeT (completo x (d - 1)) x (completo x (d - 1))
+
+-- un arbol completo de altura 0 es un nodo con el valor x y dos subarboles vacios. En caso contrario, un arbol
+-- completo de altura d es un nodo con el valor x y dos subarboles que son arboles completos de altura d - 1.
 
 -- b) balanceado
 balanceado :: a -> Int -> Tree a
 balanceado x 0 = EmptyT
 balanceado x 1 = NodeT EmptyT x EmptyT
 balanceado x n = NodeT (balanceado x (div n 2)) x (balanceado x (div n 2))
+
+-- un arbol balanceado de tamaño 0 es un arbol vacio. Un arbol balanceado de tamaño 1 es un nodo con el valor x y dos
+-- subarboles vacios. En caso contrario, un arbol balanceado de tamaño n es un nodo con el valor x y dos subarboles
+-- que son arboles balanceados de tamaño n / 2.

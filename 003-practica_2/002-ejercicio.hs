@@ -86,3 +86,13 @@ borrar (Linea s p) = Linea (take (p - 1) s ++ drop p s) (p - 1)
 
 borrar' :: Linea' -> Linea'
 borrar' (s, p) = (take (p - 1) s ++ drop p s, p - 1)
+
+-- definimos primero el tipo linea, que contiene una lista de caracteres y un entero que representa la posicion del
+-- cursor. luego definimos las funciones que se nos piden:
+-- vacia simplemente devuelve una linea con una lista vacia y el cursor en 0
+-- moverIzq mueve el cursor una posicion a la izquierda, si el cursor ya esta en 0 no hace nada
+-- moverDer mueve el cursor una posicion a la derecha, si el cursor ya esta en el final de la lista no hace nada
+-- moverIni mueve el cursor al principio de la lista, poniendo el cursor en 0
+-- moverFin mueve el cursor al final de la lista, poniendo el cursor en la longitud de la lista
+-- insertar agrega un caracter en la posicion del cursor y mueve el cursor una posicion a la derecha
+-- borrar elimina el caracter en la posicion del cursor y mueve el cursor una posicion a la izquierda

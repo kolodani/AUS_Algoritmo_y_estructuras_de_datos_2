@@ -12,6 +12,9 @@ b) Reemplazar las llamadas a balance en ins por llamadas a alguna de estas dos f
 data Color = R | B deriving Show
 data RBT a = E | T Color (RBT a) a (RBT a) deriving Show
 
+-- definimos el tipo de dato color, que puede ser R o B, de red o black
+-- definimos el tipo de dato RBT que es un arbol rojo y negro
+
 balancel :: Color -> RBT a -> a -> RBT a -> RBT a
 balancel B (T R (T R a x b) y c) z d = T R (T B a x b) y (T B c z d)
 balancel B (T R a x (T R b y c)) z d = T R (T B a x b) y (T B c z d)
@@ -32,3 +35,8 @@ insert x t = makeBlack (ins x t)
 makeBlack :: RBT a -> RBT a
 makeBlack E = E
 makeBlack (T _ l x r ) = T B l x r
+
+-- para la funcion insert, necesitamos crear tres funciones auxiliares,
+-- la primera es makeBlack, la misma lo que hace es hacer negro el nodo de un arbol, sea el color que sea.
+-- la segunda y tercera hacen lo mismo pero con una sutil diferencia, una se aplica a la rama izquierda y la otra se
+-- aplica a la rama derecha. Que hacen estas funciones, balancean el arbol despues de que se les ingresa el elemento
