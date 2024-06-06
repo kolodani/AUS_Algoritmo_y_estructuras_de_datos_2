@@ -40,5 +40,5 @@ checkBST :: (Ord a) => Bin a -> Bool
 checkBST Hoja = True
 checkBST (Nodo l a r) = checkBST l && checkBST r && (maximumBST l <= a) && (a <= minimumBST r)
 
--- En member, minimum y maximum, toman un timpo relacion a la altura del arbol para ejecutarse.
+-- En member, minimum y maximum, toman un tipo relacion a la altura del arbol para ejecutarse.
 -- Sobre arboles mas bajos se ejecutan mas rapido.

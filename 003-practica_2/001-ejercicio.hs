@@ -24,7 +24,7 @@ data Colore = RGB Red Green Blue deriving (Show)
 mezclarColore :: Colore -> Colore -> Colore
 mezclarColore (RGB r1 g1 b1) (RGB r2 g2 b2) = RGB (div (r1 + r2) 2) (div (g1 + g2) 2) (div (b1 + b2) 2)
 
--- aqui se crea pimero el type, red, green, blue, y luego el type colour que es una tupla de estos tres
+-- aqui se crea primero el type, red, green, blue, y luego el type colour que es una tupla de estos tres
 -- valores. Luego se define la funcion mezclarColour que toma dos colores y devuelve uno solo, lo que
 -- hace es sumar los valores de cada color y dividirlos por dos, para obtener el promedio de los colores
 -- o dicho en otras palabras, mezclar los colores.

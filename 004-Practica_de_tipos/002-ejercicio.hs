@@ -43,3 +43,5 @@ selec (R:xs) (N a b) = selec xs b
 selec _ _ = error "No se puede seleccionar"
 
 arbolito = N (N (H 3) (H 4)) (H 5)
+
+-- Primero se define el tipo de dato Arb, el mismo puede ser E de vacion, H de un entero o N de dos Arboles
