@@ -43,3 +43,23 @@ comparandoPalabras2 = "Hola" == "hola"
 
 -- suma entre entero y flotante
 enteroFlotante = 5 + 4.5
+
+-- funcion sucesor
+sucesor = succ 8
+
+-- funcion maximo
+maximo1 = max 24 53
+maximo2 = max (-9) 0
+
+-- funcion minimo
+minimo1 = min 24 53
+minimo2 = min (-9) 0
+
+-- Parentesis suman prioridad
+prioridad1 = succ 9 * 10
+prioridad2 = succ (9 * 10)
+
+-- funciones prefijas e infijas
+prefija = div 92 10
+infija = 92 `div` 10
+
