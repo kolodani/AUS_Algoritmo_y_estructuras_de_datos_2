@@ -52,15 +52,20 @@ tomarNumeros = take 2 a
 -- drop funciona de forma similar a take pero se queda con el resto de lo que se saca
 sacarNumeros = drop 2 a
 
+b = [3,5,6,4,7,2,9,8,1]
+-- maximum toma el maximo de una lista
+maximoLista = maximum b
 
+-- minimum toma el minimo de una lista
+minimoLista = minimum b
 
+-- sum toma una lista y devuelve su suma
+sumatoriaLista = sum b
 
+-- product toma una lista y devuelve su producto
+productoLista = product b
 
-
-
-
-
-
-
-
+-- elem devuelve un booleano de acuerdo si el elemento esta o no en la lista
+elementoEncontrado1 = elem 5 b
+elementoEncontrado2 = elem 0 b
 
