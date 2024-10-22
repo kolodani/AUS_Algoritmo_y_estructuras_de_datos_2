@@ -6,8 +6,8 @@ maximum' (x:xs)
     | otherwise   = maxTail
     where maxTail = maximum' xs
 
-
-
-
-
+maximum2' :: (Ord a) => [a] -> a
+maximum2' []     = error "Maximo de una lista vacia"
+maximum2' [x]    = x
+maximum2' (x:xs) = x `max` (maximum2' xs)
 
