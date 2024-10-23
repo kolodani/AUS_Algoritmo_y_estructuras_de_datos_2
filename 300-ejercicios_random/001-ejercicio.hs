@@ -9,7 +9,7 @@ five x = 5
 -- b) apply, que toma una función y un valor, y devuelve el resultado de
 -- aplicar la función al valor dado
 apply :: (a -> a) -> a -> a
-apply f x = f x 
+apply f x = f x
 
 
 -- c) identidad, la función identidad
