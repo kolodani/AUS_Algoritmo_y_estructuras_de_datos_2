@@ -1,5 +1,5 @@
 import Data.List
-import Data.Function (on)
+import Data.Function
 
 intermedioLetras :: [Char]
 intermedioLetras = intersperse '.' "MONKEY"
