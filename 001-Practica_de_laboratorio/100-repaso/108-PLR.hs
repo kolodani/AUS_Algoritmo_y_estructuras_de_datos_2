@@ -66,7 +66,7 @@ restos n xs = map (`mod` n) xs
 -- cuadrados (x : xs) = x ^ 2 : cuadrados xs
 
 cuadrados :: [Int] -> [Int]
-cuadrados xs = map (^2) xs
+cuadrados xs = map (^ 2) xs
 
 -- g) 'longitudes', que dada una lista de listas, devuelve la
 --    lista de sus longitudes
@@ -127,18 +127,5 @@ letras (x : xs) = filter (\x -> x >= 'a' && x <= 'z' || x >= 'A' && x <= 'Z') xs
 -- masDe [] n = []
 -- masDe (x : xs) n = if longitud x > n then x : masDe xs n else masDe xs n
 
-masDe :: Foldable t => [t a] -> Int -> [t a]
+masDe :: (Foldable t) => [t a] -> Int -> [t a]
 masDe (x : xs) n = filter (\x -> length x > n) xs
-
-{-
-------------------------------- TERMINAR ---------------------------------------
-como se usamos estas funciones:
-foldr :: (a -> b -> b) -> b -> [a] -> b
-map :: (a -> b) -> [a] -> [b]
-filter :: (a -> Bool) -> [a] -> [a]
-
-ejemplo de uso:
-foldr (+) 0 [1,2,3,4,5] -- 15
-map (+1) [1,2,3,4,5] -- [2,3,4,5,6]
-filter (>3) [1,2,3,4,5] -- [4,5]
--}
