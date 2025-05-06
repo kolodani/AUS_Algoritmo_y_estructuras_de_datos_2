@@ -4,22 +4,29 @@
 
 -- definir recursivamente sin funciones predefinidas ni foldr
 
-splitcond :: (Int -> Bool) -> [Int] -> ([Int],[Int])
+splitcond :: (Int -> Bool) -> [Int] -> ([Int], [Int])
 splitcond f xs = (verdadero f xs, falso f xs)
 
 verdadero :: (Int -> Bool) -> [Int] -> [Int]
 verdadero f [] = []
-verdadero f (x:xs) = if f x then x: verdadero f xs else verdadero f xs
+verdadero f (x : xs) = if f x then x : verdadero f xs else verdadero f xs
 
 falso :: (Int -> Bool) -> [Int] -> [Int]
 falso f [] = []
-falso f (x : xs) = if f x then falso f xs else x:falso f xs
+falso f (x : xs) = if f x then falso f xs else x : falso f xs
 
 -- usar foldr y una funcion anomima
 -- foldr (+) 0 [1,2,3,4,5] -- 15
 -- prueba :: (Int -> Bool) -> [Int] -> ([Int], [Int])
 
+splitcond2 :: (Int -> Bool) -> [Int] -> ([Int], [Int])
+splitcond2 f xs = (verdaderof f xs, falsof f xs)
 
+verdaderof :: Foldable t => (a -> Bool) -> t a -> [a]
+verdaderof f = foldr (\x xs -> if f x then x : xs else xs) []
+
+falsof :: Foldable t => (a -> Bool) -> t a -> [a]
+falsof f = foldr (\x xs -> if not (f x) then x : xs else xs) []
 
 -- listas por comprencion sin usar funciones definidas
 splitcond3 :: (Int -> Bool) -> [Int] -> ([Int], [Int])
